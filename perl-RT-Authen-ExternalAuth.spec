@@ -51,6 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README
+%dir %{perl_vendorlib}/RT/Authen
 %{perl_vendorlib}/RT/Authen/*.pm
-%{perl_vendorlib}/RT/Authen/ExternalAuth
+%dir %{perl_vendorlib}/RT/Authen/ExternalAuth
+%{perl_vendorlib}/RT/Authen/ExternalAuth/*.pm
 %{_mandir}/man3/*
