@@ -7,7 +7,7 @@
 %define	pnam	Authen-ExternalAuth
 Summary:	RT::Authen::ExternalAuth - RT Authentication using External Sources
 Name:		perl-RT-Authen-ExternalAuth
-Version:	0.07_02
+Version:	0.08
 Release:	1
 License:	GPL version 2
 Group:		Development/Languages/Perl
@@ -15,8 +15,8 @@ URL:		http://search.cpan.org/dist/RT-Authen-ExternalAuth/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rt >= 3.8.0
-Source0:	http://search.cpan.org/CPAN/authors/id/F/FA/FALCONE/RT-Authen-ExternalAuth-0.07_02.tar.gz
-# Source0-md5:	2a00c1398ea7ff6ddf1528eb8ad4ff7f
+Source0:	http://www.cpan.org/modules/by-module/RT/%{pdir}-%{pnam}-%{version}.tar.gz	
+# Source0-md5:	ba591003a2ca39ac2965b548e158a34f
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,8 +51,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README
+%{perl_vendorlib}/RT/*.pm
 %dir %{perl_vendorlib}/RT/Authen
 %{perl_vendorlib}/RT/Authen/*.pm
 %dir %{perl_vendorlib}/RT/Authen/ExternalAuth
 %{perl_vendorlib}/RT/Authen/ExternalAuth/*.pm
+%dir %{perl_vendorlib}/RT/Authen/ExternalAuth/DBI/
+%{perl_vendorlib}/RT/Authen/ExternalAuth/DBI/*.pm
 %{_mandir}/man3/*
