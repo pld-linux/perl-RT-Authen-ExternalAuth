@@ -8,7 +8,7 @@
 Summary:	RT::Authen::ExternalAuth - RT Authentication using External Sources
 Name:		perl-RT-Authen-ExternalAuth
 Version:	0.08
-Release:	1
+Release:	2
 License:	GPL version 2
 Group:		Development/Languages/Perl
 URL:		http://search.cpan.org/dist/RT-Authen-ExternalAuth/
@@ -45,12 +45,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+cp etc/RT_SiteConfig.pm RT_SiteConfig.pm.example
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README
+%doc ChangeLog README RT_SiteConfig.pm.example
 %{perl_vendorlib}/RT/*.pm
 %dir %{perl_vendorlib}/RT/Authen
 %{perl_vendorlib}/RT/Authen/*.pm
