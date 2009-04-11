@@ -6,17 +6,18 @@
 %define	pdir	RT
 %define	pnam	Authen-ExternalAuth
 Summary:	RT::Authen::ExternalAuth - RT Authentication using External Sources
+Summary(pl.UTF-8):	RT::Authen::ExternalAuth - uwierzytelnianie w RT przy użyciu zewnętrznych źródeł
 Name:		perl-RT-Authen-ExternalAuth
 Version:	0.08
 Release:	2
 License:	GPL version 2
 Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-module/RT/%{pdir}-%{pnam}-%{version}.tar.gz	
+# Source0-md5:	ba591003a2ca39ac2965b548e158a34f
 URL:		http://search.cpan.org/dist/RT-Authen-ExternalAuth/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rt >= 3.8.0
-Source0:	http://www.cpan.org/modules/by-module/RT/%{pdir}-%{pnam}-%{version}.tar.gz	
-# Source0-md5:	ba591003a2ca39ac2965b548e158a34f
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,6 +29,16 @@ authentication for any database with an installed DBI driver.
 It also allows for authenticating cookie information against an
 external database through the use of the RT-Authen-CookieAuth
 extension.
+
+%description -l pl.UTF-8
+Kompletny pakiet pozwalający na dodawanie zewnętrznych mechanizmów
+uwierzytelniania do RT. Aktualnie obsługuje LDAP poprzez Net::LDAP
+oraz zewnętrzne bazy danych dla każdej bazy mającej zainstalowany
+sterownik DBI.
+
+Pozwala także na uwierzytelnianie informacji z ciasteczek (cookie)
+względem zewnętrznej bazy danych poprzez rozszerzenie
+RT-Authen-CookieAuth.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -58,6 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/RT/Authen/*.pm
 %dir %{perl_vendorlib}/RT/Authen/ExternalAuth
 %{perl_vendorlib}/RT/Authen/ExternalAuth/*.pm
-%dir %{perl_vendorlib}/RT/Authen/ExternalAuth/DBI/
+%dir %{perl_vendorlib}/RT/Authen/ExternalAuth/DBI
 %{perl_vendorlib}/RT/Authen/ExternalAuth/DBI/*.pm
 %{_mandir}/man3/*
