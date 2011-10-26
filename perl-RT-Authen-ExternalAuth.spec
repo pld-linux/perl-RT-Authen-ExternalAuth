@@ -13,9 +13,10 @@ Release:	1
 License:	GPL version 2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/RT/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ba591003a2ca39ac2965b548e158a34f
+# Source0-md5:	3089dbad24538fd51492bb881062219d
 URL:		http://search.cpan.org/dist/RT-Authen-ExternalAuth/
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-ldap
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rt >= 3.8.0
 BuildArch:	noarch
@@ -64,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README RT_SiteConfig.pm.example
-%{perl_vendorlib}/RT/*.pm
 %dir %{perl_vendorlib}/RT/Authen
 %{perl_vendorlib}/RT/Authen/*.pm
 %dir %{perl_vendorlib}/RT/Authen/ExternalAuth
