@@ -8,7 +8,7 @@ Summary:	RT::Authen::ExternalAuth - RT Authentication using External Sources
 Summary(pl.UTF-8):	RT::Authen::ExternalAuth - uwierzytelnianie w RT przy użyciu zewnętrznych źródeł
 Name:		perl-RT-Authen-ExternalAuth
 Version:	0.17
-Release:	1
+Release:	2
 License:	GPL version 2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/RT/%{pdir}-%{pnam}-%{version}.tar.gz
